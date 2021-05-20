@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pipelines-dotnet-core", "pipelines-dotnet-core.csproj", "{C8E9E8A0-E569-4C01-B96C-91B620E4259F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pipelines-dotnetcore.Test", "..\pipelines-dotnetcore.Test\pipelines-dotnetcore.Test.csproj", "{E0D0CF69-A3BE-48B7-A2F3-305AE805C9AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8E9E8A0-E569-4C01-B96C-91B620E4259F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8E9E8A0-E569-4C01-B96C-91B620E4259F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8E9E8A0-E569-4C01-B96C-91B620E4259F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8E9E8A0-E569-4C01-B96C-91B620E4259F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0D0CF69-A3BE-48B7-A2F3-305AE805C9AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0D0CF69-A3BE-48B7-A2F3-305AE805C9AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0D0CF69-A3BE-48B7-A2F3-305AE805C9AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0D0CF69-A3BE-48B7-A2F3-305AE805C9AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {809B0FEE-DABB-4730-8E9E-5F55832C5186}
+	EndGlobalSection
+EndGlobal
