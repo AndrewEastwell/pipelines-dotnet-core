@@ -26,10 +26,17 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'Pipelines-dotnet-core'
     publishLocation: 'Container'
+
 - task: DotNetCoreCLI@2
   displayName: 'Run Unit Tests'
   inputs:
     command: 'test'
     projects: '**/pipelines-dotnet-core-tests/NUnitTestProject1-Test/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
-    testRunTitle: 'Pipeline Test Run'
+    testRunTitle: 'Pipeline Test Run'  
+- task: DownloadBuildArtifacts@0
+  inputs:
+    buildType: 'current'
+    downloadType: 'single'
+    artifactName: 'Pipelines-dotnet-core'
+    downloadPath: '$(System.ArtifactsDirectory)'
