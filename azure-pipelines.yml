@@ -26,6 +26,7 @@ steps:
   inputs:
     targetType: inline
     script: Get-ChildItem
+    arguments: '-Recurse -Force'
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Build Artifacts'
   inputs:
