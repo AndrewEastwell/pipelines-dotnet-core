@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: windows-latest
+  vmImage: 'ubuntu-18.04'
 
 variables:
   buildConfiguration: 'Release'
@@ -23,8 +23,8 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Build Artifacts'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/Output'
-    ArtifactName: 'drop'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'Pipelines-dotnet-core'
     publishLocation: 'Container'
 - task: DotNetCoreCLI@2
   displayName: 'Run Unit Tests'
