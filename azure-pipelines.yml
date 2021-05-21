@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-18.04'
+  vmImage: 'windows-latest'
 
 variables:
   buildConfiguration: 'Release'
@@ -17,13 +17,19 @@ steps:
   displayName: 'Dot Net Core build'
   inputs:
     command: 'build'
-    projects: '**/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
+    projects: '**/*.csproj' 
 
+    arguments: '--configuration $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)/Output'
+    
+- task: PowerShell@2
+  displayName: List Files Post Build
+  inputs:
+    targetType: inline
+    script: Get-ChildItem
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Build Artifacts'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/Output'
     ArtifactName: 'Pipelines-dotnet-core'
     publishLocation: 'Container'
 
@@ -36,6 +42,7 @@ steps:
     testRunTitle: 'Pipeline Test Run'  
 - task: DownloadBuildArtifacts@0
   inputs:
+    buildVersionToDownload: latest
     buildType: 'current'
     downloadType: 'single'
     artifactName: 'Pipelines-dotnet-core'
