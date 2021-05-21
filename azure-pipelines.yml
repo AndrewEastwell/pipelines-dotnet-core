@@ -14,7 +14,6 @@ variables:
 
 steps:
 - task: DotNetCoreCLI@2 
-
   displayName: 'Dot Net Core build'
   inputs:
     command: 'build'
@@ -22,8 +21,9 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
+  displayName: 'Run Unit Tests'
   inputs:
     command: 'test'
-    projects: '**/*tests/*.csproj'
+    projects: '**/pipelines-dotnet-core-tests/NUnitTestProject1-Test/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
     testRunTitle: 'Pipeline Test Run'
