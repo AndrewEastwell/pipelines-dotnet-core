@@ -27,7 +27,7 @@ steps:
     filePath: $(Build.ArtifactStagingDirectory)/Output
     targetType: inline
     script: Get-ChildItem
-    arguments: '-Depth 4'
+    arguments: '-Recurse -Depth 4'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Build Artifacts'
