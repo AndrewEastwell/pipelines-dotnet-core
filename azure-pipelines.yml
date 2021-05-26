@@ -24,8 +24,11 @@ steps:
 - task: PowerShell@2
   displayName: List Files Post Build
   inputs:
+    filePath: $(Build.ArtifactStagingDirectory)/Output
     targetType: inline
     script: Get-ChildItem
+    arguments: '-Recurse -Depth 4'
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Build Artifacts'
   inputs:
