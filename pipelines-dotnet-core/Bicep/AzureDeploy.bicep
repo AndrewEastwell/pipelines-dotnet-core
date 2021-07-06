@@ -3,7 +3,7 @@
 param webAppName string
 
 @description('Location for all resources.')
-param location string = resourceGroup().location
+param location string = resourceGroup().location  // set externally in call environment
 
 @description('Select tier name, options available include F1, B1, B2, B3, S1, S2, S3, {P1, P2, P3}')
 param tierName string
@@ -18,8 +18,18 @@ resource appServicePlanName 'Microsoft.Web/serverfarms@2020-06-01' = {
   tags: {
     displayName: 'AppServicePlan'
   }
-  sku: {
+  sku: { 
     name: tierName
   }
   properties: {}
+}
+// Create the web app
+resource webAppPortalName 'Microsoft.Web/sites@2020-06-01' = {
+  kind: 'app'
+  name: webAppName
+  location: location
+  properties: {
+    serverFarmId: appServicePlanName.id
+    httpsOnly: true
+  }
 }
